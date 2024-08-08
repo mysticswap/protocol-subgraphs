@@ -9,10 +9,10 @@ dataSources:
   # --------------------------------------
   - kind: ethereum/contract
     name: AaveOracle
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{AaveOracleAddress}}'
-      startBlock: {{AaveOracleStartBlock}}
+      startBlock: { { AaveOracleStartBlock } }
       abi: AaveOracle
     mapping:
       kind: ethereum/events
@@ -76,11 +76,11 @@ dataSources:
   # --------------------------------------
   - kind: ethereum/contract
     name: PoolAddressesProviderRegistry
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{PoolAddressesProviderRegistryAddress}}'
       abi: PoolAddressesProviderRegistry
-      startBlock: {{PoolAddressesProviderRegistryStartBlock}}
+      startBlock: { { PoolAddressesProviderRegistryStartBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -103,11 +103,11 @@ dataSources:
   # --------------------------------------
   - kind: ethereum/contract
     name: RewardsController
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{RewardsControllerAddress}}'
       abi: RewardsController
-      startBlock: {{RewardsControllerStartBlock}}
+      startBlock: { { RewardsControllerStartBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -133,14 +133,14 @@ dataSources:
         - event: EmissionManagerUpdated(indexed address,indexed address)
           handler: handleEmissionManagerUpdated
       file: src/mapping/incentives-controller/v3.ts
-    
+
   - kind: ethereum/contract
     name: GhoToken
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{GhoTokenAddress}}'
       abi: GhoToken
-      startBlock: {{GhoTokenStartBlock}}
+      startBlock: { { GhoTokenStartBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -163,11 +163,11 @@ dataSources:
 
   - kind: ethereum/contract
     name: GhoVariableDebtToken
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{GhoVariableDebtTokenAddress}}'
       abi: GhoVariableDebtToken
-      startBlock: {{GhoVariableDebtTokenStartBlock}}
+      startBlock: { { GhoVariableDebtTokenStartBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -188,11 +188,11 @@ dataSources:
 
   - kind: ethereum/contract
     name: GhoFlashMinter
-    network: {{network}}
+    network: { { network } }
     source:
       address: '{{FlashMinterAddress}}'
       abi: GhoFlashMinter
-      startBlock: {{FlashMinterStartBlock}}
+      startBlock: { { FlashMinterStartBlock } }
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -217,7 +217,7 @@ templates:
   # --------------------------------------
   - kind: ethereum/contract
     name: FallbackPriceOracle
-    network: {{network}}
+    network: { { network } }
     source:
       abi: PriceOracle
     mapping:
@@ -241,7 +241,7 @@ templates:
 
   - kind: ethereum/contract
     name: ChainlinkAggregator
-    network: {{network}}
+    network: { { network } }
     source:
       abi: IExtendedPriceAggregator
     mapping:
@@ -265,7 +265,7 @@ templates:
   # --------------------------------------
   - kind: ethereum/contract
     name: AToken
-    network: {{network}}
+    network: { { network } }
     source:
       abi: AToken
     mapping:
@@ -296,7 +296,7 @@ templates:
       file: src/mapping/tokenization/initialization-v3.ts
   - kind: ethereum/contract
     name: StableDebtToken
-    network: {{network}}
+    network: { { network } }
     source:
       abi: StableDebtToken
     mapping:
@@ -325,7 +325,7 @@ templates:
       file: src/mapping/tokenization/initialization-v3.ts
   - kind: ethereum/contract
     name: VariableDebtToken
-    network: {{network}}
+    network: { { network } }
     source:
       abi: VariableDebtToken
     mapping:
@@ -354,7 +354,7 @@ templates:
       file: src/mapping/tokenization/initialization-v3.ts
   - kind: ethereum/contract
     name: GhoFacilitator
-    network: {{network}}
+    network: { { network } }
     source:
       abi: GhoAToken
     mapping:
@@ -380,7 +380,7 @@ templates:
   # --------------------------------------
   - kind: ethereum/contract
     name: PoolAddressesProvider
-    network: {{network}}
+    network: { { network } }
     source:
       abi: PoolAddressesProvider
     mapping:
@@ -422,7 +422,7 @@ templates:
 
   - kind: ethereum/contract
     name: PoolConfigurator
-    network: {{network}}
+    network: { { network } }
     source:
       abi: PoolConfigurator
     mapping:
@@ -440,6 +440,8 @@ templates:
           file: ./abis/helpers/IERC20DetailedBytes.json
         - name: DefaultReserveInterestRateStrategy
           file: ./abis/v3/DefaultReserveInterestRateStrategy.json
+        - name: DefaultReserveInterestRateStrategyV2
+          file: ./abis/v3/DefaultReserveInterestRateStrategyV2.json
       eventHandlers:
         - event: ReserveInitialized(indexed address,indexed address,address,address,address)
           handler: handleReserveInitialized
@@ -494,7 +496,7 @@ templates:
       file: src/mapping/lending-pool-configurator/v3.ts
   - kind: ethereum/contract
     name: Pool
-    network: {{network}}
+    network: { { network } }
     source:
       abi: Pool
     mapping:

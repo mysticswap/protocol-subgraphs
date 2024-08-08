@@ -1,0 +1,9 @@
+{
+  "network": "plume-testnet",
+  "AaveOracleAddress": "0xac6DFA76713EdbAf779DF45960ECe500533f6b52",
+  "AaveOracleStartBlock": 10000,
+  "PoolAddressesProviderRegistryAddress": "0x1A1d9065b4d705484706ADc2D7a147d128a34296",
+  "PoolAddressesProviderRegistryStartBlock": 10000,
+  "RewardsControllerAddress": "0xA12926f249E68C95DDC9E6D7c7Eaa83F0c853B62",
+  "RewardsControllerStartBlock": 10000
+}

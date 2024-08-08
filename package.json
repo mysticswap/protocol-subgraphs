@@ -8,6 +8,8 @@
     "subgraph:codegen": "graph codegen --output-dir ./generated",
     "subgraph:build": "graph build",
     "subgraph:deploy:hosted": "graph deploy $SLUG --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ --access-token $ACCESS_TOKEN",
+    "subgraph:deploy:goldsky:hosted": "goldsky subgraph deploy $SLUG",
+    "deploy:hosted:plume-v3": "VERSION=v3 BLOCKCHAIN=v3 NETWORK=plume-testnet env-cmd npm run prepare:subgraph && SLUG=aave/protocol-v3 env-cmd npm run subgraph:deploy:goldsky:hosted",
     "deploy:hosted:mainnet": "VERSION=v2 BLOCKCHAIN=ethereum NETWORK=mainnet env-cmd npm run prepare:subgraph && SLUG=aave/protocol-v2 env-cmd npm run subgraph:deploy:hosted",
     "deploy:hosted:mainnet-v3": "VERSION=v3 BLOCKCHAIN=v3 NETWORK=mainnet env-cmd npm run prepare:subgraph && SLUG=aave/protocol-v3 env-cmd npm run subgraph:deploy:hosted",
     "deploy:hosted:goerli-v2": "VERSION=v2 BLOCKCHAIN=ethereum NETWORK=goerli env-cmd npm run prepare:subgraph && SLUG=aave/protocol-v2-goerli env-cmd npm run subgraph:deploy:hosted",
